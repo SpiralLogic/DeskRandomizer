@@ -1,4 +1,6 @@
-﻿using DeskRandomizerApp;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DeskRandomizerApp;
 using Xunit;
 
 namespace DeskRandomizerTests
@@ -14,7 +16,7 @@ namespace DeskRandomizerTests
         }
 
         [Fact]
-        public void ArrangementShouldBePopulated()
+        public void FinalArrangementShouldBePopulated()
         {
             var deskRandomizer = new DeskRandomizer(3);
 
@@ -23,5 +25,42 @@ namespace DeskRandomizerTests
                 Assert.Equal(-1, element);
             }
         }
+
+        [Fact]
+        public void PersonListShouldBeInitialized()
+        {
+            var deskRandomizer = new DeskRandomizer(3);
+
+            Assert.Equal(3, deskRandomizer.PersonList.Length);
+        }
+
+        [Fact]
+        public void PersonListShouldBePopulated()
+        {
+            var deskRandomizer = new DeskRandomizer(4);
+
+            foreach (var person in deskRandomizer.PersonList)
+            {
+                Assert.True(person > 0);
+            }
+        }
+
+        [Fact]
+        public void PersonListShouldBeUnique()
+        {
+            var deskRandomizer = new DeskRandomizer(4);
+
+            Assert.Equal(4, deskRandomizer.PersonList.Distinct().Count());
+        }
+        
+        [Fact]
+        public void HasPreviousNeighboursReturnsTrueWithPreviousNeighbours()
+        {
+            var deskRandomizer = new DeskRandomizer(4);
+
+            Assert.Equal(4, deskRandomizer.PersonList.Distinct().Count());
+        }
+        
+        
     }
 }
