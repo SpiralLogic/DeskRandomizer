@@ -67,10 +67,10 @@ namespace DeskRandomizerTests
         {
             var deskRandomizer = new DeskRandomizer(3);
 
-            deskRandomizer.PersonList = new List<int>{1,3,4}.ToArray();
+            deskRandomizer.PersonList = new List<int>{7,3,4}.ToArray();
             var resultHigher = deskRandomizer.HasPreviousNeighbours(1);
 
-            deskRandomizer.PersonList = new List<int>{1,3,2}.ToArray();
+            deskRandomizer.PersonList = new List<int>{7,3,2}.ToArray();
             var resultLower = deskRandomizer.HasPreviousNeighbours(1);
             
             Assert.True(resultHigher);
@@ -82,14 +82,27 @@ namespace DeskRandomizerTests
         {
             var deskRandomizer = new DeskRandomizer(3);
 
-            deskRandomizer.PersonList = new List<int>{2,3,1}.ToArray();
+            deskRandomizer.PersonList = new List<int>{2,3,7}.ToArray();
             var resultHigher = deskRandomizer.HasPreviousNeighbours(1);
 
-            deskRandomizer.PersonList = new List<int>{4,3,1}.ToArray();
+            deskRandomizer.PersonList = new List<int>{4,3,7}.ToArray();
             var resultLower = deskRandomizer.HasPreviousNeighbours(1);
             
             Assert.True(resultHigher);
             Assert.True(resultLower);
+        }
+        
+        [Fact]
+        public void HasPreviousNeighboursReturnsTrueWithPreviousNeighboursWrapped()
+        {
+            var deskRandomizer = new DeskRandomizer(3);
+
+            deskRandomizer.PersonList = new List<int>{2,7,1}.ToArray();
+            var resultLeft = deskRandomizer.HasPreviousNeighbours(0);
+            var resultRight = deskRandomizer.HasPreviousNeighbours(2);
+            
+            Assert.True(resultLeft);
+            Assert.True(resultRight);
         }
     }
 }
