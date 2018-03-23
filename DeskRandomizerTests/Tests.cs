@@ -76,6 +76,7 @@ namespace DeskRandomizerTests
             Assert.True(resultHigher);
             Assert.True(resultLower);
         }
+        
         [Fact]
         public void HasPreviousNeighboursReturnsTrueWithPreviousNeighboursOnLeft()
         {
