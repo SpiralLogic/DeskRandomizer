@@ -1,13 +1,16 @@
-﻿using Xunit;
+﻿using DeskRandomizerApp;
+using Xunit;
 
 namespace DeskRandomizerTests
 {
     public class Tests
     {
         [Fact]
-        public void Test1()
+        public void CreatePersonListShouldCreateAnArrayWithGivenInput()
         {
-            Assert.True(true);
+            var deskRandomizer = new DeskRandomizer(3);
+
+            Assert.Equal(3, deskRandomizer.Arrangement.Length);
         }
     }
 }
