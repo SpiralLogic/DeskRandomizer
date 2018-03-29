@@ -140,7 +140,7 @@ namespace DeskRandomizerTests
         }
 
         [Fact]
-        public void PlacesesLastPerson2()
+        public void PlacesLastPersonCorrectlyWhenLastPersonShouldBeFirstPlace()
         {
             var deskRandomizer = new DeskRandomizer(6);
 
@@ -150,7 +150,7 @@ namespace DeskRandomizerTests
         }
 
         [Fact]
-        public void PlacesesLastPerson()
+        public void PlacesLastPersonCorrectlyWhenLastPersonShouldBeSecondPlace()
         {
             var deskRandomizer = new DeskRandomizer(6);
 
@@ -161,7 +161,7 @@ namespace DeskRandomizerTests
         }
 
         [Fact]
-        public void PlacesesLastPerson3()
+        public void PlacesLastPersonCorrectlyWhenLastPersonShouldBeSecondLastPlace()
         {
             var deskRandomizer = new DeskRandomizer(6);
 
